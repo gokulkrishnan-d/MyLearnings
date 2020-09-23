@@ -1,0 +1,97 @@
+Note : All the commands which are executed gllabally will be present inside .gitconfig file
+git config --global user.email 'your email'
+git config --global user.name 'your name'
+git config --global --list
+git confif --global -e - This returns all the global properties set for git 
+
+Upstream and Origin :
+*upstream generally refers to the original repo that you have forked
+*origin is your fork: your own repo on GitHub, clone of the original repo of GitHub
+git remote -v - this will return our repo remote links
+git remote set-url origin "remote reference URL" - This command is used to change the URL of an existing remote repository
+git remote add origin "remote reference URL" - To set/link remote URL to a project
+git remote add upstream git://github.com/<aUser>/<aRepo.git>
+git fetch upstream - You will use upstream to fetch from the original repo (in order to keep your local copy in sync with the project you want to contribute to).
+Note:git fetch alone would fetch from origin by default, which is not what is needed here
+
+
+cat "file name" - This will allow us to read the file data in CMD
+rm -rf .git/any repo name - This will delete all the commits/repositories which are in .git(local repository)
+git add . - this will add all the files which are in working directory with changes
+git ls-files - This gives the list of files which are getting tracked by GIT(Existing files in the git repository)
+git rm 'file name' - to remove any untracked files
+git commit -am "commit name" - here -a is for adding all the files which are modified and then commiting 
+git commit -am "commit name, close #4" - This will commit the file and closes the issue with id '4' in github
+(Reference page for commit types : https://support.atlassian.com/bitbucket-cloud/docs/resolve-issues-automatically-when-users-push-code/)
+git restore <file name> - This will restore the file back to previous version (before commiting it locally)
+Below is the concept of ALIAS : (Alias is global parameter)
+git config --global alias.logger "log --oneline --decorate --all --graph" - Here Alias name we provided as logger. so when ever we hit 'git logger' it will execute this command
+git diff 'from commit id' 'to commit id' - This returns the differences between the commit ID's
+git diff 'from commit id' head - this return commits from the commit id to head
+git diff 'from branch name' 'to branch name' - We can compare branches using diff
+git difftool from 'from commit id' 'to commit id' - This shows the exact difference in p4merge tool
+git checkout -b "branch name" - create a new branch from base branch and checkout
+git branch -d 'branch name' - To delete a branch
+git show 'commit ID or tag number'  - This wil return the code changes done as part of that commit
+git pull --all - This updates all the branches from the origin
+git pull - Fetch from origin and merge with a local branch(git pull is shorthand for 'git fetch' followed by 'git merge FETCH_HEAD'.)
+git fetch - This will just fetch all the meta data from origin but will not merge.
+git push origin :branchName - This will push the latest commits to remote repo 
+master@{2015-01-01} or head@{3} - We can give in this format to compare difference in github(Pull requests page)
+
+
+Logging : 
+git log - This will return the list of commits
+git log -2 - This will return me with last 2 commits
+git log --oneline --decorate - This will return the logs in one line
+git ref logs - This provides more info on the complete history along with type of commits made
+
+Tagging : -a(Annotate), -m(Message), -d(Delete)
+git tag 'Tag name or tag number' - To provide a tag to particular commit
+git tag --list - To view the list of tags which are already created
+git tag -d 'tag name' - To delete a tag associated with specific name provided
+git tag -a 'tag name' -m 'commit name' - this will create and commit the tag in local repo
+git push origin 'tag name' - To push a one/secific commit to remote repo
+git push --tags - To push all the bunch of tags to remote repo
+
+
+Stashing : 
+git stash save "stash name" - Stash the changes with a commit name
+git stash list - This returns the list of stashes done so far
+git stash pop stash@{} - Using pop we can retrieve the stash 
+git stash drop stash@{} - This helps in dropping a stash. Provide the stash number in {}
+
+deleting local commits : 
+git reset 'commit id' --soft - This will revert the commit from local repo and keeps the file changes staged from last commits.
+git reset 'commit id' --hard - This will revert the commit from local repo and deletes all the file changes part of that commit
+git reset --mixed : it's same as git reset --soft but the only difference is it un stage your changes from last commits.
+
+Gist: 
+Gist is a simple way to share code snippets and pastes with others. It is used when you need to share a sample piece of code or technique with your co-workers or friends.
+
+generation and adding SSH keys :
+1.create a .ssh folder inside your user directory - C:\Users\shyam\.ssh
+2.navigate your cmd directory inside .ssh folder
+3.cmd : ssh-keygen -t rsa -C "kotivada.kumar@tcs.com"
+4.After executing above command, copy the key from 'id_rsa.pub' inside .ssh folder
+5.Add the Key in Github under SSH keys 
+6.ssh -T git@github.com - Enter your pass phrase if you provided any.once you do this you will be connected to github via SSH
+
+Commands for p4merge configurations:
+git config --global diff.tool p4merge
+git config --global difftool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+git config --global merge.tool p4merge
+git config --global difftool.prompt false
+git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+git config --global mergetool.prompt false
+
+
+Merge branches through CLI : 
+1. Switch to the base branch 
+2. cmd : git merge 'to branch name' 
+3. cmd : git mergetool - This has to be executed in case of any conflicts
+
+
+Github Comments : 
+##Text - This will show text as heading 
+_text_text - Use it for Font style
