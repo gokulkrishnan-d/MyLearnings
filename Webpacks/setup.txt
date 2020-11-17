@@ -1,0 +1,15 @@
+mkdir wepack_demo
+
+cd wepack_demo
+
+npm init to create a package.json
+
+npm install webpack -g
+
+npm i webpack-cli -g
+
+u can add config file for the webpack which used to run webpack in cmd 
+and by adding watch: true in config , it will always check for the change and compile automatically
+
+And cmd "webpack -p " which run the webpack in prod mode will minify the js to smaller size
+

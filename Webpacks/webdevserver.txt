@@ -1,0 +1,12 @@
+---To address the issue of running the app using http protocol, you can use webpack-dev-server.
+The webpack-dev-server is a little Node.js Express server, which uses the webpack-dev-middleware to serve a webpack bundle
+The server listens for any change in your project and then injects that change into the browser
+
+To install webpack dev server,
+
+    webpack_practice >> `npm install webpack-dev-server --save-dev`
+Modify the build script in package.json as follows
+
+  "build": "webpack-dev-server --entry ./src/app.js  --output-filename ./dist/bundle.js" 
+Now type npm run build
+

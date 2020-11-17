@@ -1,0 +1,74 @@
+*****Maps*********
+
+Maps are objects that associate a key to a value.
+Maps allows both primitives and objects as key and value. But object allows only string keys.
+
+
+**********Set********************
+
+It is a collection of unique values.
+Values can be primitive or objects.
+
+
+***********WeakSet and WeakMap******************
+WeakSet and WeakMap are similar to Set and Map respectively except that:
+
+Values are easily garbage collected in WeakSet or WeakMap.
+They cannot be iterated.
+Set references are strong pointers, while WeakSet references are weak pointers and vice versa for map.
+Accepts only objects as keys, no primitives.
+Few methods such as: .values(), .keys, .entries, and .size do not work.
+
+
+
+================================================
+
+
+let myArray = [11,23,4,55,56];
+
+let mySet = new Set(myArray);
+
+mySet.add(100);
+
+Set methods:***************
+
+add(); --add in the set --return the set
+
+delete() delete the value... return the boolean if the value is there - true or false
+
+entities()  -- both key and values are same
+
+has()
+
+clear() – removes everything from the map.
+
+keys() ---return as setIterate Object
+
+size -- length
+
+values()   -- same as keys  ---return as setIterate Object
+
+valueOf()   ---return as set Object
+
+
+Map***********************
+
+let map = new Map(); / let map  = new map([['1','str1'],['2','str2']]);
+
+map.set('1', 'str1');   // a string key
+map.set(1, 'num1');     // a numeric key
+map.set(true, 'bool1'); // a boolean key
+
+Methods: 
+
+new Map() – creates the map.
+map.set(key, value) – stores the value by the key.
+map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+map.has(key) – returns true if the key exists, false otherwise.
+map.delete(key) – removes the value by the key.
+map.clear() – removes everything from the map.
+map.size – returns the current element count.
+
+
+
+

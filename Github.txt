@@ -5,6 +5,7 @@ git config --global --list
 git confif --global -e - This returns all the global properties set for git 
 
 Upstream and Origin :
+
 *upstream generally refers to the original repo that you have forked
 *origin is your fork: your own repo on GitHub, clone of the original repo of GitHub
 git remote -v - this will return our repo remote links
@@ -56,6 +57,7 @@ git push --tags - To push all the bunch of tags to remote repo
 
 
 Stashing : 
+
 git stash save "stash name" - Stash the changes with a commit name
 git stash list - This returns the list of stashes done so far
 git stash pop stash@{} - Using pop we can retrieve the stash 

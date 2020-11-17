@@ -1,0 +1,77 @@
+- ECMAScript is a language specification standardized by European Computer Manufacturers Association(ECMA).
+- All javaScript implementing are done using ECMA.
+
+-ES^ is the Implementation of ECMAScript.
+And its is the scripting Language.
+
+Major Parts odf ES6:
+
+Block scope (let and const)
+Default, Rest and Spread parameters
+Destructuring
+Arrow Functions
+Template Literals
+Classes and Modules
+Promise
+Maps and Sets
+Symbols
+Transpiling
+
+---------------------------------------------------------------------------------------------------------------------------
+Block scope:
+
+In JavaScript, var is used to create variables. ES6, introduces 2 other keywords for declaring Block scope variables.
+1.let
+2.const
+
+
+let and var is used to create a variable , but there are few difference in it.
+
+# let doesn't allow properties to be added to the global (window) object.
+
+Exap:
+
+var x = 10;  
+console.log(window.x)     // 10
+let x = 10; 
+console.log(window.x)    //  undefined
+
+# let always provides the Block Scope with the curly braces.
+function sum() {
+   console.log(i); // undefined
+   for(var i = 0; i < 2; i++) {
+          // some code
+    }
+    console.log(i); // undefined
+}
+
+function sum() {
+   console.log(i); // Error
+   for(let i = 0; i < 2; i++) {
+          // some code
+    }
+    console.log(i); // Error
+}
+
+# let doesn't allow re-declaring a variable
+
+var x = 10;
+var x = 11;  
+console.log(x) // 11
+
+let x = 10;
+let x = 11; 
+// Uncaught SyntaxError: Identifier 'x' has already been declared
+
+
+Conts:
+
+all the variables are immutable means cannot be changed.
+
+Const doesn't make objects immutable. To make object immutable, use the freeze() function.
+
+const car = Object.freeze({ name: 'Benz', class: 'c' })
+car.class = 's'
+console.log(car)   
+//   { name: 'Benz', class: 'c' }
+

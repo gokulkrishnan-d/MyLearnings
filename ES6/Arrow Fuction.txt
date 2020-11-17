@@ -1,0 +1,56 @@
+Arrow Functions  Differences
+
+Unlike regular functions, arrow functions do not have their own this.(means it does not have the lexical scope)
+ The value of this inside an arrow function remains the same throughout the 
+lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function.
+
+Using new keyword==================
+
+Regular functions created using function declarations or expressions are
+ ‘constructible’ and ‘callable’. Since regular functions are constructible, 
+ they can be called using the ‘new’ keyword. However, the arrow functions are only ‘callable’ 
+ and not constructible. Thus, we will get a run-time error on trying to construct a non-constructible 
+ arrow functions using the new keyword.
+
+ ===============
+
+
+ **********this binding is not required if we are using the arrow function
+
+With arrow functions, duplicate named arguments are always, regardless of strict or non-strict mode, invalid.
+
+"use Strict" is not required
+
+===========================
+
+var square = x => { return x*x; } 
+//Parantheses are optional for single parameter 
+var sub  = () => expression 
+//return and {} are optional for function with single statement
+
+=============================================================================
+
+let a = [1,2,3,4,5,6];
+
+let data = a.map(n => n*2);
+
+======================================================
+can access the inside function without define as function
+let myFunc = {  
+ showArgs(){ 
+  console.log(arguments); 
+ } 
+}; 
+myFunc.showArgs(1, 2, 3, 4);
+
+==============================================================
+
+without arguments
+
+let sayHi = _ => console.log(“Hi”);
+
+
+============================================================
+
+
+

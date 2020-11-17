@@ -1,0 +1,96 @@
+ES6 offers 3 types of parameters 
+
+Give a default value to the function Like :
+
+function foo(a = 10, b = 20) {
+    console.log(a, b);
+}
+foo();            // 10 20
+foo(5, 10);  // 5 10
+
+Rest parameters:
+
+Rest allows indefinite number of parameters in one single array. Notation ...<param-name> is used to define Rest Parameter.
+
+WithOut Rest:
+
+function sum(...args) {
+    var result = 0;
+    args.forEach(function(args) { result += args; } )
+    return result;
+}
+
+function sum() {
+    var args = Array.prototype.slice.call(arguments);  
+    // converts args to array
+    result = 0;
+    numbers.forEach(function (args) { 
+                 result += args;
+     } );
+    return result;
+}
+
+#Spread Parameter:
+
+-is used to spread an array elements into parameters.
+
+
+Example in Javascript
+
+function sum(x, y, z) {
+ return x+y+z;
+}
+let args = [1, 2, 3];
+let add = sum.apply(null, args); 
+console.log(add);
+
+Example in ES6
+
+function sum(x, y, z) {
+ return x+y+z;
+}
+let args = [1, 2, 3];
+let add = sum(...args);
+console.log(add);  
+//---------------------------------------------------------------------------
+ var parts = ["shoulder", "knees"];
+ var bodyParts = ["head", ...parts, "and", "toes"]; 
+ console.log(bodyParts)
+
+ ----------------------------------Destructing of array and Objects----------------------------------------
+
+ let [x, y, ...z] = [1,2,3,4,5,6];           
+would mean x = 1, y = 2, z = [3,4,5,6]
+let {x, y, ...z} = {x: 1, y: 2, z: 3, a: 4};    
+would mean x = 1, y = 2, z = { z: 3, a: 4 }   
+
+
+
+=============================================================================================
+Destructuring Arrays
+Taking array elements directly into variables:
+var [one, two, three, four] = ["chennai", "mumbai", "goa", "cochin"];  
+//console.log(one);  => chennai
+Skipping values and taking second array element in variable two:
+var [,two,,]=["chennai", "mumbai", "goa", "cochin"];
+//console.log(two);  => mumbai
+Destructuring Nested Arrays:
+ const [one, two, three] = [ 1,  [2,3],  [4,5] ];    
+//one=> 1 two=> [2,3], three=>[4,5]
+
+================================================================================================
+
+Objects
+
+var {firstName:first,lastName:last,...details}={
+        firstName:  "Neha",
+        lastName:   "Singh",
+        age:     40,
+        city:   "chennai",
+        phone:   980000000
+}
+
+console.log (first , details); //output: Neha {age: 40, city: "chennai", phone: 980000000}
+
+=====================================================================================================
+

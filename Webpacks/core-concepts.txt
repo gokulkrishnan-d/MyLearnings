@@ -1,0 +1,70 @@
+Webpack includes four core concepts
+
+    1. Entry
+    2. Output
+    3. Module loaders
+    4. Plugins.
+
+Entry and Output:
+
+Entry: The starting point of a dependency graph is called an Entry point, it tells webpack where to start bundling.
+
+Output : It tells the Webpack where to bundle the modules of the application and how to treat a bundled code.
+
+
+--------------------------------------------------------------------------
+
+Create webpack.config.js in the root of our working directory.
+
+webpack.config.js
+     // Nodejs module for absolute path resolving
+     var path = require('path'); 
+    module.exports = {
+    //  Entry point of webpack
+    entry: './src/app.js',         
+    output: {
+        // Need to be resolved to absolute path
+        path: path.resolve(__dirname, 'dist'),
+        // bundled/compiled file name  
+        filename: './bundle.js',
+        // For webpack dev server to identify the full path.                
+        publicPath: '/dist'        
+        }
+    };
+Modify the script for webpack dev server by removing the entry and outputs in package.json package.json
+
+ {
+     "name": "webpack_practice",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": 
+     {
+        "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "webpack-dev-server" 
+     },
+     "author": "",
+     "license": "ISC",
+     "devDependencies":
+     {
+        "webpack": "^2.4.1"
+     }
+  }
+Now run the build
+
+
+    webpack_practice >> npm run build
+Open localhost:8080 in browser, our js loads as expected.
+
+-------------------------------------------------------------------------------------------------------
+
+Why do we need Loaders?
+
+Webpack can handle JavaScript natively
+Loaders are like tasks in other build tools, and provide a powerful way to handle frontend build steps
+
+Loaders can:
+Transform files from a different language like, CoffeeScript to JavaScript or inline images as data URLs
+Loaders also allow you to include css files( require() ) right in JavaScript!
+There is wide variety of loaders available which includes: - conversion on ES6 code to ES5 code using babel.
+     - scss loader which converts SASS code to css

@@ -1,0 +1,30 @@
+What is Webpack?
+
+Webpack is an open source module bundler for modern JavaScript applications.
+
+ It takes modules with dependencies and generates static assets representing those modules.
+
+ When do you need Webpack?
+
+Webpack is good fit for a complex front-end application with non-code static assets like style sheets, images etc.
+
+Webpack is not recommended for small web applications.
+
+Why do you need Webpack?
+
+Based on the dependency, Webpack creates a dependency graph so as to give a modular approach to the web applications.
+
+Code Splitting (detailed later in the course) is an exciting feature that keeps Webpack distinct from all other module bundlers.
+
+
+Goals of Webpack
+
+Spliting the dependency tree into chunks loaded on demand
+Reducing initial load time
+Every static asset should be able to be a module
+Integrating Third party libraries as modules
+Ensuring each part of the module is customizable
+Webpack is very much suitable for large projects
+
+It can compile one js to another...
+It used for minification of js/css,inline css, compile sass , compile es6 etc

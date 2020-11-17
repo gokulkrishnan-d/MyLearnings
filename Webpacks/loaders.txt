@@ -1,0 +1,94 @@
+To load CSS, you need to use
+
+1. `css-loader` : For processing css files.
+2. `style-loader` : injects the styling through a style element.
+Install css and style loaders
+   webpack_practice >>  npm install css-loader style-loader --save-dev
+create css folder in /src and include main.css in it.
+
+
+Configure your webpack--- CSS
+
+Modify the app.js file
+
+    require("./css/main.css");
+
+Add loader modules in webpack.config.js
+
+webpack.config.js
+
+
+    var path = require('path');
+    module.exports = {
+    entry: './src/app.js',
+        output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: './bundle.js',
+        publicPath: '/dist'
+    },
+    module: {
+    loaders: [
+        { test : /\.css$/, loader: "style-loader!css-loader" }
+            ]
+        }
+    }
+
+    --------------------------------------------------------------
+    To use ES6 in our application with webpack, we need
+
+    - `babel-core`: Transpiles es6 code to es5 so that it works in any browser.
+    - `babel-loader`:Helps in using babel with webpack
+    - `babel-preset-es2015`: unlocks all the es6 features to use in our application.
+
+        npm install babel-core babel-loader babel-preset-es2015  --save-dev
+Add operations.js in /src folder with the following content operations.js
+
+    function sum(a, b) {
+        return a+b;
+    }
+
+    function difference(a, b) {
+        return a-b;
+    }
+
+    export { sum, difference }
+============
+
+    Modify app.js as follows
+
+app.js
+
+    require("./css/main.css");
+     import {sum, difference} from './operations.js';
+     document.write("Sum of 2 and 3 is "+sum(2, 3)); // 5
+    document.write("Difference of 5 and 5 is "+difference(5, 2));  // 3
+But this will not work unless we include the babel loader configuration in webpack.config.js
+
+webpack.config.js
+
+    var path = require('path');
+    module.exports = {
+        entry: './src/app.js',
+        output: {
+           path: path.resolve(__dirname, 'dist'),
+           filename: './bundle.js',
+           publicPath: '/dist'
+        },
+        module: {
+            loaders: [
+                { test : /\.css$/, loader: "style-loader!css-loader" },
+                {
+                    test: /\.js$/,
+                    use: [
+                    {
+                        loader: 'babel-loader',
+                        options: { presets: ['es2015'] }
+                    }
+                    ]
+                 }
+            ]
+        }
+    };
+
+
+    ----------------------------------------------------------------------------------

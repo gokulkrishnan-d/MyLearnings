@@ -1,0 +1,87 @@
+In Webpack, the developers are not confined to the predefined build callbacks. 
+They can use ***customized build callback***s using plugins.
+Plugins are the backbone of Webpack as it fully exposes the potential of webpack.
+Plugins are additional node modules that usually work on the resulting bundle.
+For Example:
+
+HtmlWebpackPlugin simplifies the creation of HTML files to serve Webpack bundles.
+ExtractTextWebpackPlugin moves all CSS modules in entry chunks into a separate CSS file. 
+So that the styles are no longer inlined into the JS bundle, but are saved in a separate CSS file (styles.css).
+
+
+=============================================================================================
+HTMLWebpackPlugin
+First install plugin as dev dependency:
+
+    npm install html-webpack-plugin --save-dev
+To make it work, modify the webpack.config.js as follows:
+
+webpack.config.js
+
+
+         var path = require('path');
+         var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+         module.exports = {
+             entry: './src/app.js',
+             output: {
+                  path: path.resolve(__dirname, 'dist'),
+                  filename: 'bundle.js'
+             },
+            module: {
+               loaders: [
+                   { test : /\.css$/, loader: "style-loader!css-loader" },
+                   {
+                      test: /\.js$/,
+                      use: [
+                              {
+                                   loader: 'babel-loader',
+                                   options: { presets: ['es2015'] }
+                              }
+                      ]
+                   }
+               ]
+            },
+            plugins: [ new HtmlWebpackPlugin() ]
+        };
+
+        ====================
+        Modifying webpack.config.js:
+        
+        If you notice, all the buttons that are missing from the final index.html, will by default serve just js and css compiled assets.
+
+We can also give specifications for the template to generate, rather than using the default template.
+
+Modify the webpack.config.js as follows:
+
+webpack.config.js
+
+    var path = require('path');
+    var HtmlWebpackPlugin = require('html-webpack-plugin');
+    module.exports = {
+        entry: './src/app.js',
+        output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: './bundle.js',
+            publicPath: '/dist'
+        },
+        module: {
+            loaders: [
+            { test : /\.css$/, loader: "style-loader!css-loader" },
+                {
+                    test: /\.js$/,
+                    use: [
+                    {
+                         loader: 'babel-loader',
+                         options: { presets: ['es2015'] }
+                     }
+                   ]
+                 }
+               ]
+            },
+            plugins: [ 
+                new HtmlWebpackPlugin({
+                    template: 'index.html'   // we are providing our index.html which has all our code.
+                })
+            ]
+        };

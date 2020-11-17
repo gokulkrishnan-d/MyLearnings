@@ -1,0 +1,10 @@
+What is Code Splitting?
+
+In this video you will learn about,
+
+Need to split the code
+How code spliting makes the application dynamic
+How to use AggressiveSplittingPlugin to split the module
+
+
+Is used for lazy loading
