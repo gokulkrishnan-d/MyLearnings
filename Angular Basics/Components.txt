@@ -1,0 +1,28 @@
+What is Component?
+A component is the basic block of angular 2 app.
+It handles the view part of the app and has the core logic of the page.
+It can render the view by itself based on the dependency Injection.
+There can be only one component per DOM element (i.e. only one selector element).
+Element's behavior can be manipulated by the properties associated with corresponding component.
+It can be identified using the decorator @Component.
+Components can be created, updated or destroyed based on the user actions on the page.
+
+
+Components - Example
+This example will render Hello, World! in the browser. Angular will search for <my-app>
+element in HTML file and replace it with the template content.
+
+File: app.component.ts
+ import { Component } from '@angular/core';
+ @Component({
+  selector: 'my-app',
+  template: '<p>Hello, World!</p>',
+ })
+ export class AppComponent{}
+
+File: index.html
+ ............
+ <body>
+  <my-app> Loading... </my-app>
+ </body>
+ ............

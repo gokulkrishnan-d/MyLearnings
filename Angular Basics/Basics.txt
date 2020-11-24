@@ -1,0 +1,15 @@
+Why Angular 2?
+Easy: Unlike previous versions, Angular 2 focuses only on building JavaScript classes; hence it is easier to learn.
+Freedom: It provides more choices of languages for consumption i.e. ES5, ES6, Typescript, and Dart. TypeScript is recommended here.
+Flexible: It is a Cross-platform framework.
+Faster: Because of server side rendering.
+Simpler: Component based approach with no controllers and $scope.
+Performance: Uses Hierarchical Dependency Injection system, which is a performance booster.
+
+
+Angular 2 Environment Setup
+To setup an Angular 2 environment, node.js is mandatory.
+ Once node.js and npm are available, you can run the following to complete the setup in cmd.
+
+Install Angular CLI(command line interface) Command: npm i -g @angular/cli (-g installs angular globally for all users)
+Install TypeScript Command: npm install -g typescript

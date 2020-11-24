@@ -1,0 +1,32 @@
+What is Service?
+Services are functions that are designed to complete a specific task.
+ If you want to bring external data from server into your app or perform some repetitive task, then services come handy.
+
+ How to use Services?
+ How to use Services?
+
+ Create a file <serviceName>.services.ts.
+ Import injectable from @angular/core.
+ Create a class with the required function and use the decorator @injectable() to specify that it is a service.
+ Then import the service in root component, which is discussed in Dependency Injection.
+ Example: This simple service will perform add operation whenever it is used.
+
+     import {Injectable} from 'angular2/core';
+
+     @Injectable()
+     export class MyService {
+         addFunction(a,b){ return a+b; }
+     }
+
+
+
+
+What is Dependency Injection?
+
+Dependency Injection is a way to "Inject" the parameters or services (dependencies),
+ on which the new Instance is "Dependent" for its creation. How the dependencies are created is not a point of concern
+ for the instance consuming the dependency.
+
+Angular finds which services are required to the component, by looking at the "type" of component's constructor parameters.
+Angular then checks for the service in Injector, which makes a container of all services that have already been created.
+

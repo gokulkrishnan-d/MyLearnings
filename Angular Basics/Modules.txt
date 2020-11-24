@@ -1,0 +1,31 @@
+What is Module?
+A Module is a way of organizing related Components, Services, Directives, and Pipes with a specific functionality.
+
+It is a block of code meant to do certain tasks.
+
+There can be several Modules within an app, but it should consist of at least one root module. Root Module, by convention,
+must be named: AppModule.
+
+It can be exported and imported in other modules.
+
+@NgModule is used to declare a Class as Module.
+
+Module as library - Angular Module can act as a library of modules. @angular/core is a most common library being
+used in building angular application. It has most of the modules that are required for your app.
+
+Module - Example
+This is a sample code for module.
+
+ import { NgModule } from '@angular/core';
+ import { BrowserModule } from '@angular/platform-browser';
+ @NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+ })
+ export class AppModule { }
+ // AppModule Class is now defined as Module : @NgModule
+Trick to identify Root Module is that it imports "BrowserModule". Other modules of that same application imports "CommonModule".
+imports:[...] - define array of modules required to build application here.
+declarations:[...] - define components, directives and pipes for this module here.
+bootstrap:[...] - define root component of this module here.

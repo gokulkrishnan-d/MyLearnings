@@ -1,0 +1,32 @@
+What is Template?
+Template is a simple HTML code that creates view for a component, which you can dynamically manipulate.
+
+There are two ways to define templates:
+
+template
+templateUrl
+
+How to use Template?
+When template is used, it defines code in the same file
+
+ import {Component} from 'angular2/core';
+ @Component({
+    selector: 'greet',
+    template: `
+    //this defines template for 'greet' component
+         <h1>Hello There!!!</h1>
+         <h2>Have a nice day.</h2>
+    ` // back tick symbol (~ key on your  keyboard)
+    //back tick is explained in detail in TypeScript
+ })
+ export class GreetApp {}
+When templateUrl is used, the code is defined in different files and URL of the corresponding files are referred.
+
+    import {Component} from 'angular2/core';
+ @Component({
+    selector: 'greet',
+    templateUrl: 'app.component.html'
+    //this defines "URL to the external file"
+    that defines template for 'greet' component
+ })
+ export class GreetApp {}

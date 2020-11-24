@@ -1,0 +1,57 @@
+It is the process of automatic synchronization of view and business logic. It helps in connecting the Template (view - what user sees) with Component (back end data/source).
+
+There are four ways you can bind a data to the DOM depending on the direction the data flows.
+
+Data flows into the view by Interpolation and Property Binding.
+Data flows outside the view into the class by Event Binding.
+Data flows both ways by Two-Way Data Binding.
+
+Interpolation
+Interpolation acts as local variable, which allows us to bind data from "Component Class" onto your "Template".
+
+It is defined using {{ }} double curly braces.
+If we consider an example, 20 + 20 results in {{20 + 20}}, the actual mathematical calculation is done and output is displayed as 20 + 20 results in 40.
+It can also access values from component class. Ex - {{myName}}
+It can further assign attributes to the tags. Ex - <img src = {{myImageURL}}>
+
+Property Binding
+Data flows from "Component Class' Property" to "Template".
+It is defined using [] square brackets. The following video will explain Property Binding in detail.
+
+Property Binding vs Interpolation
+Both are same, as they make the data flow from "Component" to "Template". The only difference is the way they are defined or used.
+
+Interpolation Demo
+    import { component } from `@angular2/core`;
+    @Component ({
+        selector: 'myApp',
+        template: `
+          <h1> {{title}} </h1>  //Interpolation Binding  `
+    })
+    export class AppComponent {
+        title: "Hello Fresco !"
+    }
+Property Binding Demo
+    import { component } from `@angular2/core`;
+    @Component ({
+        selector: 'myApp',
+        template: `
+          <h1  [innerHtml] = "title"> </h1>  //Property Binding
+        `
+    })
+    export class AppComponent {
+        title: "Hello Fresco !"
+    }
+
+
+
+    Event Binding
+    User interaction on view generates "Events" that make data flow from "Template" to "Component".
+    It is defined using () paranthesis. The following video will explain Event Binding in detail.
+
+    Two-Way Data Binding
+    Property Binding and Event Binding are One Way Data Binding.
+    In other words, data will flow either from Component to View or the other way, but not both.
+
+    Two-way data binding is a combination of both Property Binding and Event Binding allowing us to update data in both directions.
+     It is defined using [( )] popularly known as banana brackets.

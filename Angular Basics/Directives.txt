@@ -1,0 +1,20 @@
+What are Directives?
+Directive is a class with @Directive decorator. They make DOM elements dynamic, by changing their behavior.
+
+Directive is of three types: Structural, Attribute and Component.
+
+Structural Directive
+They manipulate the DOM elements. i.e. Delete or update the elements. This changes the structure of webpage.
+
+Some of the built-in structural directives, Angular 2 offers are NgIf, NgFor and NgSwitch.
+
+Example: <div *ngIf="employee">{{employee.name}}</div>
+
+
+Attribute Directive
+These directives add styling by manipulating the Attributes of DOM element. They do not change the structure of webpage.
+
+NgStyle and NgClass are some of the built-in attribute directives, Angular 2 provides.
+
+Custom Directive
+We can also create custom attribute directives using @Directive decorator. This video will show you how to create custom directive.

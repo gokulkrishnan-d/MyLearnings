@@ -1,0 +1,24 @@
+What is Metadata?
+In Angular 2, Metadata is vital in getting the code processed and shown on the screen. Metadata means data of data, which gives more info about data.
+
+ ex: var age : number = 20;
+ // 20 is data
+ // "number" is metadata, as it tells information of "data", its type, its size etc.
+
+ Metadata - Example
+ Let us consider a simple example code as shown below. Suppose you want to have a component,
+ Angular will consider it as a simple "class" until you explicitly use "Decorator" and attach metadata to TypeScript.
+
+ Here, @Component is used to define a class as component.
+
+ Likewise, @pipe is used to tell Angular to define a class as pipe.
+
+  import {Component} from 'angular2/core';
+  @Component({  //METADATA
+     selector: 'greet',
+     template: `
+          <h1>Hello There!!!</h1>
+          <h2>Have a nice day.</h2>    `
+  })
+  export class GreetApp {}
+ Simply put, everything in Angular 2 is a simple class, until you declare metadata (@Component or @Pipe or @Decorator or @Injectable) to it.
