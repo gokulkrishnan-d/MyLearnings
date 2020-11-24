@@ -1,0 +1,85 @@
+Creating TDF- Inside AppModule
+Let us understand how to create Template Driven Forms
+
+In app.module.ts
+
+import FormsModule - @angular/forms
+add FormsModule into import metadata
+import {FormsModule}
+
+@NgModule({
+    imports: [BrowserModule, FormsModule],
+    .....
+    .....
+})
+
+
+In app.component.html
+
+Create a form, provide link in app.component.ts under templateUrl
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">	//ngForm, ngSubmit
+            <label>Name:</label>
+            <input type="text" name="name" ngModel>			//ngModel
+            ......
+            ......
+            ......
+            <div ngModelgroup="address">					//ngModelgroup
+            	Street: <input type="text" name="name" ngModel>
+            	City:
+            	....
+            	....
+            </div>
+    </form>
+ngForm directive gives value of Form Fields. And tells you if the form is in valid/invalid state
+ngSubmit event is fired when a user clicks on Submit button.
+ngModel directive creates the FormControl instance to manage the template form control. It also lets you setup two-way data binding between variable in component and form-control in template. <input type="text" name="name" [(ngModel)]="someName">
+ngModelgroup directive logically group the form fields under one name. For example: Street, City, Country, Zip etc can be grouped in Address
+
+
+Steps:
+
+Import forms Module in module.ts
+And add it in the @NgModule
+Add template variable in the form tag
+
+<form #name="ngForm">
+
+access tha value {{name.value| json}}
+**and The value is accessble only if u add ngModel Directive in the form-control
+
+**And u can Grp the diff inputs with ngModelGroup Directive
+
+
+============================================
+
+Validating TDF- Pairing Classes
+
+The classes provided by Angular are:
+
+ng-valid: field value is valid
+ng-invalid: field value is invalid
+ng-untouched: field is not yet clicked
+ng-touched: field is visited by user atleast once
+ng-pristine: field value is the default value
+ng-dirty: field value is changed from the default value
+
+You can use these pairs in many combinations, to change style in CSS or provide feedback to user.
+
+ng-valid / ng-invalid
+ng-untouched / ng-touched
+ng-pristine / ng-dirty
+	Name: <input type="text" #refName="ngModel" required name="name" ngModel>
+	<div [hidden]="refName.valid || refName.pristine">
+		Please enter a name
+	</div>
+
+
+	For validations also ref names are needed #name.
+	<input type="text" #name="ngModel" [(ngModel)]="userName">
+
+	{{name.valid}}
+	{{name.invalid}}
+	{{name.untouched}}
+	{{name.touched}}
+	{{name.pristine}}
+	{{name.dirty}}

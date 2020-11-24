@@ -1,0 +1,108 @@
+Creating MDF-Inside AppModule
+A Model Driven Form is pretty much like Template Driven. But here you need to import a different module ReactiveFormsModule instead of FormsModule.
+
+In app.module.ts, import ReactiveFormsModule and add it in "import" metadata
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+    imports: [ ReactiveFormsModule ],
+})
+
+Creating MDF-Inside ts
+In app.component.ts
+
+import FormGroup, FormControl
+define FormGroups and FormComponents inside class
+export class AppComponent {
+    form= new FormGroup({
+        name: new FormControl(),
+        .....
+        address: new FormGroup({
+          street: new FormControl(),
+          city: new FormControl()
+        })
+    });
+}
+
+Creating MDF-Inside Template
+In app.component.html
+
+Create a form with formGroup, formGroup, formComponentName and formComponent and provide link in templateUrl
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Name:</label>
+    <input type="text" formControl="name">
+    ......
+    ......
+    <div formGroupName="address">
+      Street: <input type="text" formControl="street">
+      City:   <input type="text" formControl="city">
+      ....
+      ....
+    </div>
+</form>
+
+========================================
+
+MDF – With FormBuilder
+In Model Driven Form, you might have felt a lot of coding,
+typing and wording. You had to call new FormGroup() and new FormControl() frequently.
+ Now you can give a little rest to your hand, as we now have a laboratory called FormBuilder, which creates FormGroup and FormControl.
+
+All you have to do is import FormBuilder, FormGroup and call .group() method as shown
+
+In app.component.ts
+
+export class AppComponent {
+  form: FormGroup;
+  constructor(fb: FormBuilder){
+    this.form = this._fb.group({
+      name: ['', [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(10)] ],
+      .....
+      address = this._fb.group({
+        street: [],
+        .....
+      })
+    });
+  }
+}
+
+============================================
+
+Validating MDF-Inside Component
+In Model Driven Form, you need to import Validators to validate the form.
+
+In app.component.ts
+
+export class AppComponent {
+  form= new FormGroup({
+      name: new FormControl([
+            Validators.required,
+            Validators.minLength(4),
+            Validators.maxLength(10)
+          ]),
+  });
+}
+
+Validating MDF-Inside Template
+In app.component.html
+
+Name: <input type="text" #refName formControlName="name">
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)">
+	<div *ngIf= " name.errors.required  "> Please enter a name </div>
+	<div *ngIf= " name.errors.minlength "> Minimum Length: 4 </div>
+</div>
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)">
+	<div *ngIf= " refGroup.get('name').errors?.required  "> Please enter a name </div>
+	<div *ngIf= " refGroup.get('name').errors?.minlength "> Minimum Length: 4 </div>
+</div>
+
+<form [formGroup]="refGroup">
+<input type="text" #refName formControlName="name" [class.in-valid]="refGroup.get('name').valid">
+
+</form>

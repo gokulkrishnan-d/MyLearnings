@@ -1,0 +1,18 @@
+The Accordion.......
+If you want to toggle between hiding or showing large texts in your web pages, accordions will come to your rescue
+
+
+The Navigation Bar.........
+Navigation bar is a set of buttons or images that are arranged in a row or
+column such that when a user clicks on that image or button which leads to a separate section.
+
+<div> tag is used to create sections. There are three basic types of navigation bars:
+
+Basic Navigation Bar: Simple Navigation Bar from where users may access information.
+
+Vertical and Horizontal Navigation Bar:Vertical Navigation refer to a navigation bar on
+the left side of the web page. Horizontal Navigation Bar refers to the bar present in the top of a page.
+
+Fixed Navigation: On scrolling down a long web page, it may be required to access the navigation bar from every part of the web page. That is when we need Fixed Navigation Bar so that the Navigation Bar sticks to the top of the web page even if we scroll down.
+
+Let us learn more about them now.
