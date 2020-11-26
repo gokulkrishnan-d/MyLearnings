@@ -1,0 +1,148 @@
+Import and Partial
+@import rule is used to import SASS files.
+
+@import sample.scss
+
+You can also import multiple files using @import
+
+@import sample1.scss,sample2.scss
+
+If you want to import multiple SCSS files into one master CSS file, then save such files with
+ a name starting with an underscore (_), like _new.scss.
+
+While writing the import command you can mention the file name without "_".
+
+
+Media Directive**********************
+@media behaves similar to that of CSS media rules and it can be nested inside CSS rules.
+
+When @media rule is nested in CSS it occupies the top level of the stylesheet.
+
+Example:
+.container {
+  width: 80%;
+
+ @media (min-width: 250px) and (max-width:550px) {
+    width: 100%;
+  }
+
+}
+
+Extend Directive********
+The @extend directive is used when you want to include styles from another element in addition to the styles present in the current element.
+
+SCSS file
+.master {
+  color:  #000000;
+  font-size: 15px;
+}
+
+.slave {
+  @extend .master;
+  font-weight: bold;
+}
+
+CSS file
+
+
+.master, .slave {
+  color: #000000;
+  font-size: 15px; }
+
+.slave {
+  font-weight: bold; }
+
+
+  More about Extend**********
+
+There are different types of extends such as:
+  Extending Complex Selector
+  Multiple Extends
+  Chaining Extends
+  Selector Sequences
+  Extend in Selectors
+  Optional Flag
+  Extend in Directives.
+
+
+  At-root Directive***************************
+  You can use @at-root directive if you want to create the rules at the root of the document instead of nesting them in their parent element.
+
+  SCSS file
+
+  .building {
+    .first-floor {
+      color: #ff0000;
+    }
+
+    @at-root {
+      .second-floor {
+        color: #00ff00;
+      }
+
+      .third-floor {
+        color: #0000ff;
+      }
+    }
+  }
+
+  CSS file
+
+  .building .first-floor {
+    color: #ff0000; }
+
+  .second-floor {
+    color: #00ff00; }
+
+  .third-floor {
+    color: #0000ff; }
+
+    Error Directive********************
+    used to display errors.
+
+    SCSS file
+    $colors:(
+         red : #ff0000
+         black: #000000
+    );
+
+    @function style($color1) {
+       @if map-has-key($colors, $color1) {
+         @return map-get($colors, $color1);
+       }
+
+    @error "Invalid color: '#{$color1}'";
+    }
+
+    .p {
+       color: style(white);
+    }
+
+    The error output from the above code is:
+
+    output***: error c:\ruby\lib\sass\error.scss Line 12 Invalid color: ‘white’***
+
+    Debug and warn directive*****************************************************************
+
+    @debug directive is useful to find the errors and displays the values of SassScript expressions to standard error output stream
+
+    Example
+
+    $font-sizes: 30px + 40px;
+    $style: (
+      color: #asc4d7
+    );
+    .container{
+      @debug $style;
+      @debug $font-sizes;
+    }
+    Execute the following code: sass --watch debug.scss:debug.css
+
+    @warn directive is useful when you want to give a cautionary advice to the users when you get any problem.
+    It also displays the value of SassScript expressions** to the standard output stream
+
+    Example
+
+    $main-color:  #asc5h4;
+    @warn "Darker: " darken($main-color, 50%);
+    Execute the following code: sass --watch warn.scss:warn.css

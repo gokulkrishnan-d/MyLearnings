@@ -1,0 +1,94 @@
+Introduction to SASS
+
+Syntactically Awesome Style Sheet or simply called as SASS is a CSS preprocessor.
+
+It enables you to create style sheets faster.
+
+Extends the functionality of CSS by allowing you to use variables, nested rules, functions, and mixins.
+
+SASS is written in Ruby language
+
+LESS, Stylus and PostCSS are few other popular CSS preprocessors.
+
+Features of SASS
+Sass is more stable, powerful and compatible with all versions of CSS.
+
+It is an open source preprocessor.
+
+It has its own syntax, which compiles to readable CSS. Hence you can write CSS easily (less code in less time).
+
+
+Install SASS:
+
+npm install -g sass
+
+The most direct way to make this happen is in your terminal. Once Sass is installed,
+ you can compile your Sass to CSS using the sass command. You'll need to tell Sass which file to build from, and where to output CSS to.
+ For example, running sass input.scss output.css from your terminal would take a single Sass file,
+  input.scss, and compile that file to output.css.
+
+You can also watch individual files or directories with the --watch flag.
+The watch flag tells Sass to watch your source files for changes, and re-compile CSS each time you save your Sass.
+If you wanted to watch (instead of manually build) your input.scss file, you'd just add the watch flag to your command, like so:
+
+sass styles.scss styles.css
+
+sass --watch input.scss output.css
+
+You can watch and output to directories by using folder paths as your input and output, and separating them with a colon. In this example:
+
+sass --watch app/sass:public/stylesheets
+
+Convert from SASS to SCSS-------------------------------
+
+sass-convert styles.sass styles.scss
+
+
+Syntax of SASS************************************
+You are now equipped with the knowledge to install SASS, you will now move on to the programming part.
+
+You must know that SASS supports two types of syntax:
+
+SASS Syntax
+
+SCSS Syntax
+
+SASS Syntax
+It uses indentation to identify code blocks and newline to separate lines within a block. These files are saved with the .sass extension.
+
+Sample:
+
+
+     .new
+
+     color:#ff0055
+
+     font-weight:bold
+
+     span
+
+     text-transform:uppercase
+
+
+ SCSS syntax***************
+ An extension of CSS syntax is SCSS (Sassy syntax).
+
+ It uses braces to identify code blocks and semicolons to separate lines within a block. These files are saved with the .scss extension.
+
+ Sample:
+
+
+ .new {
+
+        color:#00ff55;
+
+        font-weight:bold;
+
+       }
+
+ span {
+
+        text-transform:uppercase;
+
+       }
+

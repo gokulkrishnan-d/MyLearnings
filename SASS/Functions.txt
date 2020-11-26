@@ -1,0 +1,153 @@
+SASS Functions
+
+SASS supports different types of functions such as:
+
+String functions
+Numeric functions
+List functions
+Map functions
+Selector functions
+Color functions
+
+String Functions-----------------------------------------------------------
+You will now see few common string functions used.
+
+unquote($string) - Removes the quotes around a string.
+
+Example:    unquote(“fresco”)
+            output: fresco
+
+quote($string) – Adds quotes around a string.
+
+Example:     quote(Fresco)
+             output: “Fresco”
+
+str-length($string) – Returns number of characters in a string.
+
+Example:     str-length(“play”)
+             output: 4
+
+ String Functions--------------------------------------------------------------------
+ str-insert($ string,$ insert,$ index) - It is used to insert a string in the middle of another string at a given position.
+
+ Example: str-insert(“Fresco   “,”Play”,8)
+ output: “Fresco Play”
+
+ str-index($ string,$ substring) – It checks for the substring in the given string and returns the first occurrence, returns null if it is not found.
+
+ Example: str-index(“fresco”,”f”)
+ output: 1
+
+ str-slice($string, $ start-at, [$end-at]) – It is used to retrieve a specific part of the string that begins at the $start-at position and ends at $end-at position (this is optional).
+
+ Example: str-slice(“fresco play”,8)
+ output: play
+
+ str-slice(“fresco play”,8,9)
+ output: pl
+
+ to-upper-case($string) – converts a string to uppercase.
+
+ Example: to-upper-case(“fresco”)
+ output: FRESCO
+
+ to-lower-case($string)- converts a string to lowercase.
+
+ Example: to-lower-case(“FRESCO”)
+ output: fresco
+
+ Numeric Functions----------------------------------------------
+ Here you go some of the commonly used numeric functions are:
+
+ percentage($ number)- Converts a number to percentage.
+
+ Example: percentage(2.5)
+ output: 250
+
+ Keep note that except percentage every other numeric function will accept “px” or “em”.
+
+ round($number) – Rounds the number to nearest whole number.
+
+ Example: round(2.5)
+ output: 3
+
+ ceil($ number)- Rounds the number up to the nearest whole number.
+
+ Example: ceil(3.25)
+ output: 4
+
+ floor($ number)- Rounds the number down to the nearest whole number.
+
+ Example: floor(3.75)
+ output: 3
+
+ abs($number)- Returns the absolute value.
+
+ Example: abs(2) or abs(-2)
+ output: 2
+
+ List Functions--------------------------------------------------------------------
+ This function allows you to play with a given list.
+
+ length($ list)- Returns the number of elements available in the list.
+
+ Example: length(15 24 37 41)
+ output: 4
+
+ nth($list, $n) – Returns nth element of the list.
+
+ Example: nth(5 10 56 7, 2)
+ output: 10
+
+ set-nth($list, $n, $value)- The n element is set with value mentioned in the function.
+
+ Example: set-nth(8 4 7, 4, 13)
+ output: (8,13,7)
+
+ join($list, $ list2, [$separator]) – Appends the second list with the first one. A separator can be mentioned optionally.
+
+ Example: join((1 2 3),(4,5,6),auto)
+ output: (1,2,3,4,5,6)
+
+ join((1 2 3),(4 5 6),space)
+ output: (1 2 3 4 5 6)
+
+ append($ list1,$ val,[$separator])- Used to append a value to the list, again a separator is optional.
+
+ Example: append(11 21 32,41)
+ output:(11 21 32 41)
+
+ index($ list,$value) – The element in the $list at a specific position i.e $ value is displayed
+
+ Example: index(1 5 6 ,2)
+ output:5
+
+ Map Functions------------------------------------------
+ You have learned previously that a map data type represents key-value pair. Like the list, maps are also immutable.
+
+ map-get($ map,$ key) – Returns the value associated with the mentioned key.
+
+ Example: map-get(“red”:  #ff0000, “green”: #00ff00), “green”)
+ output: #00ff00
+
+ map-merge($ map1,$ map2)- Appends the second map with the first one.
+
+ Example: map_merge((“red”: #ff0000 ,”green”: #00ff00),(“blue”: #0000ff))
+ output:(“red”: #ff0000, “green”: #00ff00, “blue”: #0000ff)
+
+ map-remove($ map,$ keys) - Removes the given key and returns the result.
+
+ Example: map-remove((“red”: #ff0000, “green”: #00ff00), “red”)
+ output: “green”: #00ff00
+
+ map-keys($ map) – Returns the mentioned list of keys.
+
+ Example: map-keys(“red”: #ff0000, “green”: #00ff00)
+ output: “red”,”green”
+
+ map-values($ map)- Used to return the values.
+
+ Example: map-values(“red”: #ff0000, “green”: #00ff00)
+ output: (#ff0000,#00ff00)
+
+

@@ -1,0 +1,140 @@
+List of Modified Features
+Following are few of the deprecations or changes introduced since v2.
+
+HttpClient
+Configuration file
+Tree shakable providers
+RxJS6
+
+Angular v4 and below
+
+From Angular v4.3, the library to make HTTP requests is changed from Http to HttpClient.
+With this change, you do not have to convert the returned observables to JSON format manually.
+
+import { HttpModule }    from '@angular/http';
+@NgModule({
+  imports: [
+    ...
+    HttpModule,
+  ],
+})
+Angular v5 and above
+
+import { HttpClientModule } from '@angular/common/http';
+@NgModule({
+  imports: [
+    ...
+    HttpClientModule,
+  ],
+})
+
+HTTP Inside Service
+Angular v4.3 and below
+
+import { Headers, Http } from '@angular/http';
+export class MyService {
+    constructor(private http: Http) { }
+    ...
+}
+Angular v4.3 and above
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+export class MyService {
+    constructor(private http: HttpClient) { }
+    ...
+}
+
+
+----------------------------------
+
+Configuration File
+The .angular-cli.json file of your old angular projects (v5 and below) is now renamed as angular.json in v6.
+This is the configuration file of your new angular workspace present in the root location.
+
+Angular workspace is the directory that gets generated via CLI.
+
+The project file structure is generated when you run ng new <project-name> command.
+
+Your angular workspace now supports multiple sub-projects (type: application or library).
+
+Within your angular workspace, you can now
+
+generate application project using: ng g application <app-name>
+
+generate library project using: ng g library <lib-name>
+
+Exploring Configurations-----------------------
+
+You will now explore few properties inside the configuration file (angular.json).
+
+newProjectRoot- defines the location where internals applications and libraries will be placed.
+Default value: projects
+projects- defines configurations of all the projects inside your workspace.
+projectType- tells the type of the project (application or library).
+root- tells the location where the project is present.
+prefix- defines the prefix keyword which will be added to your selector when you generate any component or directive using CLI.
+
+Tree Shakable Providers---------------------------------
+
+The Angular team has introduced few changes in the way you register your services, to make your app more tree-shakable. Meaning, while bundling the app, angular will tree-shake (remove) the services that are not being used by the present module. This reduces the size of your app in the final bundle.
+
+You can directly tell the service, the module name, where it should be registered.
+Unlike before, now you need not have to register services inside AppModule using providers.
+This is done using providedIn attribute, within @Injectable decorator
+Now the service is referencing the module. Before modules used to keep a reference of services.
+
+DI Changes-------------------------------------------
+
+Angular v5 and below
+In AppModule
+
+@NgModule({
+  ...
+  providers: [MyService]
+})
+export class AppModule {}
+In Service
+
+@Injectable(){}
+export class YourService {}
+Angular v6
+In Service
+
+@Injectable() {
+    ...
+    providedIn: [root]
+}
+export class YourService{}
+
+RXJS 6----------------------------------
+
+From Angular-v6, RxJS-6 is used.
+
+Few of the changes in the new version include:
+The way you import things
+Example: all pipeable operators can now be imported as import { map, filter, scan } from 'rxjs/operators';
+Converting dot-chained operators to pipe operator.
+Deprecating Observable.if and Observable.error functions.
+
+RxJS6 has converted dot chaining syntax to pipe syntax.
+
+Before you used to write observables like this using dot chaining syntax.
+
+source
+ .map(x => x + x)
+ .mergeMap(n => of(n + 1, n + 2)
+   .filter(x => x % 1 == 0)
+   .scan((value, x) => value + x, 0)
+ )
+ .catch(err => of('error found'))
+ .subscribe(printResult);
+
+New pipe syntax in RxJS 6
+source.pipe(
+ map(x => x + x),
+ mergeMap(n => of(n + 1, n + 2).pipe(
+   filter(x => x % 1 == 0),
+   scan((value, x) => value + x, 0),
+ )),
+ catchError(err => of('error found')),
+).subscribe(printResult);

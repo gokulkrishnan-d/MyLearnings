@@ -1,0 +1,112 @@
+SASS Datatypes
+
+Numbers
+Strings
+Colors
+Booleans and Nulls
+Lists
+Map
+
+Numbers********************
+Sass can recognize numeric datatype such as integer or real but it cannot recognize standard units such as em or px.
+
+Example:
+
+add: 43 + 6;    //"plain" numbers added together
+
+add: 43px + 6;  //"plain" number added to a pixel value
+
+add: 22em + 8em; //two "em" values added together
+
+add: 22px + 8em;// error
+
+Strings****************************
+Sass strings are mentioned within single quotes, double quotes or without quotes.
+
+SCSS file
+$default-font: 'Arial';
+
+p {
+    font-family: $default-font, "Verdana", Georgia;
+}
+
+Boolean, Nulls and Lists*********************
+Sass uses True and False as boolean values and it also supports null value.
+Lists:
+
+Sass list is a series of values that are separated by commas and spaces.
+
+Example:
+
+
+$body-font: Helvetica, Arial, sans-serif;
+
+$body-margin: 0 10px 20px 13px;
+
+Maps are key-value pairs.******************************
+
+They are wrapped within parenthesis.
+The map never writes their output directly to the CSS file, but map functions do.
+SCSS file
+
+$red-map: (light: #e57373, medium: #f44336, dark: #b71c1c);
+
+p {
+   color: map-get($red-map, light);
+}
+
+
+Calculations***************************************
+Calculations such as addition, subtraction and multiplication can be performed using the math operator.
+
+SCSS file
+add  : 23em+7;
+
+CSS file
+add  : 30em;
+
+You can combine multiple math operations using the parenthesis.
+
+SCSS file
+
+$base     : 10;
+$height   : 20;
+$constant : 0.5;
+$triangle-area : $constant*$base*$height;
+
+.area
+{
+area: $triangle-area;
+}
+
+
+Division**************
+Performing division is a bit tricky since the division operator(/) is a part of CSS property.
+You can use / operator to perform division:
+When a variable is used.
+If the operation is mentioned within parenthesis.
+
+Example:
+SCSS file
+.Division
+{
+
+image: 200px/10;
+image: (200px/20);
+image: (100px/10px);
+$image: 200px;
+image: $image/20;
+image: 20px-200px/20;
+
+}
+
+CSS file
+.Division {
+
+  image: 200px/10;
+  image: 10px;
+  image: 10;
+  image: 10px;
+  image: 10px; }
+
+

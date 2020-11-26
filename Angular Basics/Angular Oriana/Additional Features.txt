@@ -1,0 +1,56 @@
+Additional Features
+Here you will be discovering the following new features that Angular team has provided you:
+
+Else Statement
+Email Validator
+Progressive Web App
+Angular Update Guide
+Add New Features
+Angular Library
+
+
+Else Statement:---
+<div *ngIf="show; else myBlock">Text to show</div>
+
+<ng-template #myBlock>Alternate text</ng-template>
+
+Email Validator---------------
+In Angular 2, you used the regular expression within the pattern attribute of input for email validation. Now, from version 4, email validator is added to make your life simple.
+
+Angular 2
+<input type="email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+
+Angular 4 and above
+<input type="email" name="email" email>
+
+New CLIs-------------------------
+
+From Angular v6, the following new CLIs are added:
+
+ng add: to add new functionalities to your app
+
+ng update: to update your app from older to newer angular version
+
+ng generate library: to generate an angular library
+
+Angular Update Guide--------------
+Angular update guide, added in Angular v6, is the new feature which lets you update angular apps from older to a newer version with less hassle.
+
+If your current angular app version is 4, it is recommended you first upgrade it to 5, and then to version 6.
+
+CLI to Update Package--------------------
+ng update is the new CLI command used to update the angular packages inside your project.
+
+Syntax: ng update <package name>
+
+For example ng update @angular/core
+
+
+Add New Features--------------------
+You can add new features or capabilities to your angular project, such as PWA, material design, by using ng add CLI command.
+
+Syntax: ng add <package name>
+
+For example, your current project does not have a material design. You can add the angular material design feature using ng add @angular/material
+
+Did you wonder what could be the difference between ng add @angular/material and npm install @angular/material?

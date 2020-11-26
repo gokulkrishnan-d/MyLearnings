@@ -1,0 +1,36 @@
+Changes or modifications introduced since version 2:---------------------
+
+Deprecated features like HttpClient, HttpClientModule, .angular-cli.json
+
+A new way of registering services, or using observables
+
+New features such as else statement, service worker, form validators, ng cli options, etc.
+
+Changes In v4
+
+Following are brief and prominent changes introduced in Angular v4:
+Added support of else statement with ngIf directive
+Upgraded to Renderer-2
+Upgraded to Typescript-2
+Added support for email validator in <input>
+Changed the location/package from where you import animations
+
+Changes In v5
+
+Following are brief and prominent changes introduced in Angular v5:
+
+AOT is made the default way of compilation when you build your app for prod
+Added support to build Progressive Web App using service workers
+Deprecated Http and HttpModule and introduced HttpClient and HttpClientModule
+Added new form validations for blur and submit
+Added new router life cycle events like GuardsCheckStart, ChildActivationStart, etc
+
+Changes In v6
+
+Following are brief and prominent changes introduced in Angular v6:
+
+Changed the way rxjs operators are used using RxJS6 pipe syntax
+Modified angular configuration file to angular.json
+Added new feature Angular Elements to create custom HTML elements
+Added New CLIs options ( ng add, ng update, ng generate library)
+Added new way to register services with modules using providedIn

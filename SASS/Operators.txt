@@ -1,0 +1,55 @@
+Operators
+Relational Operators ( <, <=, >, >= )
+
+10 < 23   // true
+10 <= 61  // true
+25 > 14    // true
+11 >= 11 // true
+
+Comparison Operators ( ==, != )
+
+#000 == black  // true
+15 + 35 == 50  // true
+normal != italic // true
+
+Conditional Directive********************************
+The @if directive evaluates a sass expression and processes it's style if the expression returns a value other than false.
+
+Example:
+
+SCSS file
+
+$car: benz;
+.conditional
+{
+  @if $car == benz
+{
+   background: #ffff00;
+}
+  @else if $car == audi
+{
+    background: #ff1493;
+}
+  @else
+    background: #00ff00;
+}
+}
+CSS file
+
+.conditional {
+  background: #ffff00; }
+
+  Loops***************************
+
+  Sass supports different loop types such as:
+
+  @for: used to track the loop against a given range (a starting and ending value).
+
+  @each: uses a list or map for looping instead of using a starting and ending value.
+
+  @while: An extension of the @if directive it continuously outputs the styles until the condition becomes false.
+
+  You will learn more about loops in the next card.
+
+
+

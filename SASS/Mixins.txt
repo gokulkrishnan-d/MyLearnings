@@ -1,0 +1,13 @@
+Mixins
+Mixins are used to create a group of styles, which are re-usable throughout the stylesheet.
+
+They can be used to store multiple values or parameters, and are used to call the function as well. Helps avoid repetitive coding.
+
+
+@mixin arialFond(){
+//some css
+}
+
+p{
+ @include arielFond()
+}

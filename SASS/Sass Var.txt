@@ -1,0 +1,79 @@
+SASS Variables
+SASS variables are used to store information.
+
+Variables are defined with a dollar sign ($ ) followed by a variable name
+
+
+$color: red;
+
+Variable Interpolation|***********
+
+Variables can be used anywhere in the SASS file.
+
+They can be used (interpolated) in class, property or inside string of a plain text.
+
+Example:
+
+SCSS file
+
+
+$car: Benz;
+
+$speed: averagespeed;
+
+
+
+.#{$car}
+
+{
+
+  #{$speed}:336km/h;
+
+}
+
+CSS file
+
+
+.Benz {
+
+  averagespeed: 336km/h; }
+
+
+  SASS Script*****************************
+
+  Sass script enables you to compute CSS selector, property or value using Sass expression.
+
+  A Sass expression is the combination of values and operators.
+
+  Sass transpiler will evaluate the sass expression before producing the CSS output.
+
+  Example:
+
+  SCSS file
+
+
+  $car: Benz;
+
+  p
+
+  {
+
+        car-name: $car;
+
+  }
+
+
+SASS Interpreter******************
+
+You can also evaluate Sass expression using an interpreter instead of using Sass transpiler.
+
+Install interpreter in your system by executing:
+
+
+sass -i
+
+After successful installation, the command prompt will prompt you with the symbol “>>” indicating that the interpreter is up and running.
+
+Type in the expression and the result will be displayed on the terminal. You can use variables as well,
+ but remember that the variable values will not be retained when you close the terminal.
+
