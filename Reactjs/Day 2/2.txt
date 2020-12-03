@@ -1,0 +1,4 @@
+Build home page which should use basic JSX Expression
+1. Display the Welcome Message
+2. Write few lines about React Training
+3. Copy Right Message in the Footer

@@ -3,7 +3,6 @@ Services are functions that are designed to complete a specific task.
  If you want to bring external data from server into your app or perform some repetitive task, then services come handy.
 
  How to use Services?
- How to use Services?
 
  Create a file <serviceName>.services.ts.
  Import injectable from @angular/core.

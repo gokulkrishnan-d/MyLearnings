@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3a66b5d7-bcc8-480d-b75c-12f7c0905f85" name="Default Changelist" comment="SASS Basics">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Angular Basics/Angular Forms/NGRX.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reactjs/Day 1/1.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reactjs/Day 2/2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reactjs/link.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular Basics/Angular Forms/Model Driven Forms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Angular Basics/Angular Forms/Model Driven Forms.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular Basics/Angular Oriana/Additional Features.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Angular Basics/Angular Oriana/Additional Features.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular Basics/Services And DI.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Angular Basics/Services And DI.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ES6/Parameters and Arguments.doc" beforeDir="false" afterPath="$PROJECT_DIR$/ES6/Parameters and Arguments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ES6/let and Conts.doc" beforeDir="false" afterPath="$PROJECT_DIR$/ES6/let and Conts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Webpacks/core-concepts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Webpacks/core-concepts.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IntelliJConfiguration">
+    <option name="PROPERTY_FILES">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="REMOVE_NBSP" value="true" />
+    <option name="CREATE_NEW_JSP" value="true" />
+    <option name="KEY_RESOLUTION_TYPE" value="Use all words in label" />
+    <option name="PROMPT_FOR_KEY_PREFIX" value="false" />
+    <option name="LABEL_PART_1" value="&lt;bean:message key=&quot;" />
+    <option name="LABEL_PART_2" value="&quot;/&gt;" />
+  </component>
+  <component name="ProjectId" id="1kS6ON6wYsv958KH8lsXQl6vTig" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\training\MyLearnings\Reactjs" />
+      <recent name="E:\training\MyLearnings" />
+      <recent name="E:\training\MyLearnings\Angular Basics" />
+      <recent name="E:\training\MyLearnings\.idea" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a66b5d7-bcc8-480d-b75c-12f7c0905f85" name="Default Changelist" comment="" />
+      <created>1605681612563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605681612563</updated>
+    </task>
+    <task id="LOCAL-00001" summary="commit">
+      <created>1606190013500</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606190013500</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Angular Basics">
+      <created>1606198398763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606198398763</updated>
+    </task>
+    <task id="LOCAL-00003" summary="SASS Basics">
+      <created>1606392178017</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606392178017</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <MESSAGE value="Angular Basics" />
+    <MESSAGE value="SASS Basics" />
+    <option name="LAST_COMMIT_MESSAGE" value="SASS Basics" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="637" y="300" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606232974587">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="637" y="300" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1046@0.0.1920.1046" timestamp="1606232974587" />
+    <state x="728" y="150" key="RollbackChangesDialog" timestamp="1605681675982">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="728" y="150" key="RollbackChangesDialog/0.0.1920.1046@0.0.1920.1046" timestamp="1605681675982" />
+    <state x="797" y="412" key="VCS.ChangelistChooser" timestamp="1606392203239">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="797" y="412" key="VCS.ChangelistChooser/0.0.1920.1046@0.0.1920.1046" timestamp="1606392203239" />
+    <state x="451" y="188" key="Vcs.Push.Dialog.v2" timestamp="1606392180084">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="451" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1046@0.0.1920.1046" timestamp="1606392180084" />
+    <state x="721" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606385605954">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="721" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1046@0.0.1920.1046" timestamp="1606385605954" />
+    <state x="539" y="11" width="840" height="1034" key="search.everywhere.popup" timestamp="1606147479514">
+      <screen x="0" y="0" width="1920" height="1046" />
+    </state>
+    <state x="539" y="11" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1046@0.0.1920.1046" timestamp="1606147479514" />
+  </component>
+</project>

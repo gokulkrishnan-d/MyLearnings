@@ -54,3 +54,35 @@ Syntax: ng add <package name>
 For example, your current project does not have a material design. You can add the angular material design feature using ng add @angular/material
 
 Did you wonder what could be the difference between ng add @angular/material and npm install @angular/material?
+
+
+Ivy Renderer---------------------------------------------------------
+Ivy is the new rendering engine from the Angular team.
+Wait, what is a rendering engine?
+Whatever you write in component class and template is translated by Angular's rendering
+ engine into usual HTML and JavaScript, so your browser can read and display.
+
+This might not change the way you code but improves the build time and bundle size of your app.
+
+Enable Ivy
+Note: Ivy is still in the development phase. If you want to give it a try, you can enable the following settings in tsconfig.json file.
+
+"angularCompilerOptions": {
+  "enableIvy": true
+}
+
+Angular Elements-----------------------
+Now you can define your own custom HTML element like <my-element> using Angular Elements,
+which can be used by apps developed on any different framework. `
+In terms of angular, it is an angular component packaged as a custom element.
+
+Example: <my-popup message="Use Angular!"></my-popup>
+
+Angular Elements
+Angular Elements can be built using createCustomElement() API available in @angular/elements package.
+ The function transforms the component along with its dependencies, to your custom element.
+
+The developer using your custom element to build a (for example React) web app, need not know about Angular or
+ the implementation within the component.
+
+
