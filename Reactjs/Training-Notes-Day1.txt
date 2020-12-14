@@ -1,0 +1,72 @@
+React ES6:
+
+A class is a type of function and  the properties are assigned inside a constructor() method.
+Classes:
+
+class Car {
+  constructor(name) {
+    this.brand = name;
+  }
+}
+
+mycar = new Car("Ford");
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+  
+<script>
+class Car {
+  constructor(name) {
+    this.brand = name;
+  }
+}
+
+mycar = new Car("Ford");
+
+document.write(mycar.brand);
+</script>
+
+</body>
+</html>
+
+class Car {
+  constructor(name) {
+    this.brand = name;
+  }
+  
+  present() {
+    return 'I have a ' + this.brand;
+  }
+}
+
+mycar = new Car("Ford");
+mycar.present();
+
+Class Inheritance
+
+
+Arrow Functions:
+Before:
+hello = function() {
+  return "Hello World!";
+}
+
+After:
+hello = () => {
+  return "Hello World!";
+}
+
+var:
+	outside function - global scope
+	inside function - function scope
+	inside block - still accessible outside block
+
+let:
+	let is block scope. if we define inside block which accessible only there.
+
+const:
+	value can never change.
+	

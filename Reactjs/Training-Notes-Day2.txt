@@ -1,0 +1,83 @@
+React JSX:
+We can keep complete html code inside of the variable and will be converted to javascript in runtime.
+const element = <h1>Hello, world!</h1>;
+Bable com
+
+Embedding Expressions in JSX:
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+
+JSX is an Expression Too:
+function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}!</h1>;
+  }
+  return <h1>Hello, Stranger.</h1>;
+}
+
+Specifying Attributes with JSX:
+const element = <img src={user.avatarUrl}></img>;
+
+Specifying Children with JSX:
+const element = (
+  <div>
+    <h1>Hello!</h1>
+    <h2>Good to see you here.</h2>
+  </div>
+);
+
+JSX Prevents Injection Attacks:
+const title = response.potentiallyMaliciousInput;
+// This is safe:
+const element = <h1>{title}</h1>;
+
+By default, React DOM escapes any values embedded in JSX before rendering them
+This helps prevent XSS (cross-site-scripting) attacks.
+
+JSX Represents Objects:
+Babel compiles JSX down to React.createElement() calls.
+
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world!'
+  }
+};
+
+Rendering Elements:
+	Into the DOM:
+		const element = <h1>Hello, world</h1>;
+		ReactDOM.render(element, document.getElementById('root'));
+	Updating the Rendered Element:
+		can’t change its children or attributes
+		function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
+
+What is the ServiceRegister?

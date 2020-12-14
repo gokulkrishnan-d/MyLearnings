@@ -1,0 +1,319 @@
+
+Handling Events:
+
+React events are named using camelCase, rather than lowercase.
+With JSX you pass a function as the event handler, rather than a string.
+
+In HTML:::
+<button onclick="activateLasers()">
+  Activate Lasers
+</button>
+
+In React:
+<button onClick={activateLasers}>
+  Activate Lasers
+</button>
+
+Another difference is that you cannot return false to prevent default behavior in React. You must call preventDefault explicitly. 
+For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+<a href="#" onclick="console.log('The link was clicked.'); return false">
+  Click me
+</a>
+
+In React:
+function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
+  return (
+    <a href="#" onClick={handleClick}>
+      Click me
+    </a>
+  );
+}
+
+
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('root')
+);
+
+
+If calling bind annoys you, there are two ways you can get around this. 
+If you are using the experimental public class fields syntax, you can use class fields to correctly bind callbacks:
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        Click me
+      </button>
+    );
+  }
+}
+
+If you aren’t using class fields syntax, you can use an arrow function in the callback:
+
+class LoggingButton extends React.Component {
+  handleClick() {
+    console.log('this is:', this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={() => this.handleClick()}>
+        Click me
+      </button>
+    );
+  }
+}
+
+The problem with this syntax is that a different callback is created each time the LoggingButton renders. 
+In most cases, this is fine. However, if this callback is passed as a prop to lower components, 
+those components might do an extra re-rendering. 
+We generally recommend binding in the constructor or using the class fields syntax, to avoid this sort of performance problem.
+
+
+Passing Arguments to Event Handlers:
+<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+
+
+Adding Forms in React:
+Add a form that allows users to enter their name:
+class MyForm extends React.Component {
+  render() {
+    return (
+      <form>
+        <h1>Hello</h1>
+        <p>Enter your name:</p>
+        <input
+          type="text"
+        />
+      </form>
+    );
+  }
+}
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+
+Handling Forms:
+Add an event handler in the onChange attribute, and let the event handler update the state object:
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { username: '' };
+  }
+  myChangeHandler = (event) => {
+    this.setState({username: event.target.value});
+  }
+  render() {
+    return (
+      <form>
+      <h1>Hello {this.state.username}</h1>
+      <p>Enter your name:</p>
+      <input
+        type='text'
+        onChange={this.myChangeHandler}
+      />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+
+
+Submitting Forms:
+Add a submit button and an event handler in the onSubmit attribute:
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { username: '' };
+  }
+  mySubmitHandler = (event) => {
+    event.preventDefault();
+    alert("You are submitting " + this.state.username);
+	
+	
+  }
+  myChangeHandler = (event) => {
+    this.setState({username: event.target.value});
+  }
+  render() {
+    return (
+      <form onSubmit={this.mySubmitHandler}>
+      <h1>Hello {this.state.username}</h1>
+      <p>Enter your name, and submit:</p>
+      <input
+        type='text'
+        onChange={this.myChangeHandler}
+      />
+      <input
+        type='submit'
+      />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+
+Multiple Input Fields:
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      age: null,
+    };
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({[nam]: val});
+  }
+  render() {
+    return (
+      <form>
+      <h1>Hello {this.state.username} {this.state.age}</h1>
+      <p>Enter your name:</p>
+      <input
+        type='text'
+        name='username'
+        onChange={this.myChangeHandler}
+      />
+      <p>Enter your age:</p>
+      <input
+        type='text'
+        name='age'
+        onChange={this.myChangeHandler}
+      />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+
+Validating Form Input:
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      age: null,
+      errormessage: ''
+    };
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err = '';
+    if (nam === "age") {
+      if (val !="" && !Number(val)) {
+        err = <strong>Your age must be a number</strong>;
+      }
+    }
+    this.setState({errormessage: err});
+    this.setState({[nam]: val});
+  }
+  render() {
+    return (
+      <form>
+      <h1>Hello {this.state.username} {this.state.age}</h1>
+      <p>Enter your name:</p>
+      <input
+        type='text'
+        name='username'
+        onChange={this.myChangeHandler}
+      />
+      <p>Enter your age:</p>
+      <input
+        type='text'
+        name='age'
+        onChange={this.myChangeHandler}
+      />
+      {this.state.errormessage}
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+
+
+Hands On Question:
+1. Create a App which contains Header, MainContent(HomePage, Inventory Page) and Footer component using Class Components.
+a. Display list of static Inventory details in inventory page
+   Item No, Brand Name, No Of Items and Vendor
+   
+b. Add Inventory Details will navigate to inventory form and capturing below fields along with validation.
+c. On Submission which will display the added inventory detail as a result page.
+
+2. Create a Weather Page which will connect below weather API.
+	a) Display the IP Address of network you connected using below API
+	   IP Address API: https://get.geojs.io/v1/ip.json
+	   
+	   i. npm install axios
+	   ii. import axios from 'axios';
+	   iii. axios
+      .get('https://get.geojs.io/v1/ip.json')
+      .then(res => {
+        this.setState({
+          ipaddress:res.data.ip
+        });
+      })
+      .catch(error => {
+        console.log('API Error');
+      });
+	   
+	
+	
+	b)
+	Input : Capture the City Name in input tag and storing in state variable and API Key for weather
+	API Key: 5180e78fad17517695b63eedd25fac2e
+	Use Get Request	
+	API URL = http://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key})
+	For Example, http://api.openweathermap.org/data/2.5/weather?q=Madurai&appid=5180e78fad17517695b63eedd25fac2e
+	Outcome: should display the details in Card:
+	
+Chennai
+Today
+moderate rain Smiley face
+27
+Feels like: 31.15
+Humidity: 94
+Low: 25.75
+High: 26.39

@@ -1,0 +1,181 @@
+https://www.digitalocean.com/community/tutorials/react-axios-react
+https://www.smashingmagazine.com/2020/06/rest-api-react-fetch-axios/
+
+
+
+Making a GET Request:
+
+
+import React from 'react';
+
+import axios from 'axios';
+
+export default class PersonList extends React.Component {
+  state = {
+    persons: []
+  }
+
+  componentDidMount() {
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
+  }
+
+  render() {
+    return (
+      <ul>
+        { this.state.persons.map(person => <li>{person.name}</li>)}
+      </ul>
+    )
+  }
+}
+
+
+
+
+Making a POST Request:
+
+import React from 'react';
+import axios from 'axios';
+
+export default class PersonList extends React.Component {
+  state = {
+    name: '',
+  }
+
+  handleChange = event => {
+    this.setState({ name: event.target.value });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const user = {
+      name: this.state.name
+    };
+
+    axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Person Name:
+            <input type="text" name="name" onChange={this.handleChange} />
+          </label>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    )
+  }
+}
+
+
+Making a DELETE Request:
+
+import React from 'react';
+import axios from 'axios';
+
+export default class PersonList extends React.Component {
+  state = {
+    id: '',
+  }
+
+  handleChange = event => {
+    this.setState({ id: event.target.value });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    axios.delete(`https://jsonplaceholder.typicode.com/users/${this.state.id}`)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Person ID:
+            <input type="text" name="id" onChange={this.handleChange} />
+          </label>
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    )
+  }
+}
+
+
+
+
+Using a Base Instance in Axios:
+
+import axios from 'axios';
+
+export default axios.create({
+  baseURL: `http://jsonplaceholder.typicode.com/`
+});
+
+
+
+import React from 'react';
+import axios from 'axios';
+
+import API from '../api';
+
+export default class PersonList extends React.Component {
+  handleSubmit = event => {
+    event.preventDefault();
+
+    API.delete(`users/${this.state.id}`)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+}
+
+Using async and await:
+The await keyword resolves the promise and returns the value. The value can then be assigned to a variable.
+
+handleSubmit = async event => {
+  event.preventDefault();
+
+  //
+  const response = await API.delete(`users/${this.state.id}`);
+
+  console.log(response);
+  console.log(response.data);
+};
+In this code sample, the .then() is replaced. The promise is resolved, and the value is stored inside the response variable.
+
+
+Fetch API URL:
+
+import React from 'react';
+
+class myComponent extends React.Component {
+  componentDidMount() {
+    const apiUrl = 'https://api.github.com/users/hacktivist123/repos';
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => console.log('This is your data', data));
+  }
+  render() {
+    return <h1>my Component has Mounted, Check the browser 'console' </h1>;
+  }
+}
+export default myComponent;
