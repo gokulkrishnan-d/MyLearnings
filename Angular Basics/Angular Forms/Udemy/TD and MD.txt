@@ -1,0 +1,13 @@
+------------------Template Driven ----------------
+
+
+-Angular infers the Form Obj  from the DOM
+-For Normal forms
+
+
+
+-------------------Reactive or Model driven ----------
+
+- Form is created Programmatically and Synchronized with the DOM
+- Need to do change in both Ts and HTML and link it .
+- Used to complex Forms

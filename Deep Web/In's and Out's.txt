@@ -1,0 +1,36 @@
+-deep Web --private web with all the security .. Emails, Dropbox etc.
+-dark Web -- Purposefully Hidden, need diff tools and Browsers.
+-surface web -- which we use everyday by direct link.
+
+
+Surface web,deep Web:
+
+Computer and normal Browser .
+
+Dark Web:
+
+- need Tor web Browser
+- How to use bit coin
+- Familiar with Tail OP system
+
+
+-----------------------------------------------------------------------
+
+TOR Browser:
+TOR is Torah's a proxy used to anonymize your communication on the Internet.
+Tor uses what is called onion routing.
+In this case that you're trying to connect do you go through Internet  are called Tor nodes.
+Minimum of 3 tor nodes to connect with the services.
+Also have  some Vulnerabilities in entry of the node and the exit to service of the node.
+
+PGP:
+
+-Pretty Good Privacy
+-Way to encrypt Online.
+-Closest to Military Grade Encryption.
+-Using Public and Private Key.. Using public key data can be encrypted and only by using the private key u can Decrypt it.
+
+BitCoin
+
+- called as De-centralized crypto Currency.
+-
